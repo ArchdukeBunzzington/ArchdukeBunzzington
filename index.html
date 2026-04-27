@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Snow Globe</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      }
+
+      body {
+        margin: 0;
+        overflow: hidden;
+        background: radial-gradient(circle at 20% 20%, #1e2d4f, #04060f 60%);
+      }
+
+      #hud {
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        display: grid;
+        gap: 0.5rem;
+        z-index: 10;
+        width: min(360px, calc(100vw - 2rem));
+      }
+
+      .panel {
+        background: rgba(8, 14, 28, 0.7);
+        backdrop-filter: blur(4px);
+        border: 1px solid rgba(170, 205, 255, 0.2);
+        border-radius: 12px;
+        padding: 0.75rem;
+      }
+
+      button {
+        border: 0;
+        border-radius: 10px;
+        background: linear-gradient(120deg, #7dbbff, #6e7bff);
+        color: #00122c;
+        font-weight: 700;
+        padding: 0.65rem 0.85rem;
+        cursor: pointer;
+      }
+
+      button:hover {
+        filter: brightness(1.08);
+      }
+
+      small {
+        color: #d7e6ff;
+        opacity: 0.95;
+      }
+
+      #state-list {
+        margin: 0.5rem 0 0;
+        padding-left: 1rem;
+      }
+
+      #state-list li {
+        margin: 0.25rem 0;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="hud">
+      <div class="panel">
+        <button id="shake-btn">Shake Globe</button>
+        <small>
+          Drag to rotate • Mouse wheel / pinch to zoom • Press <strong>B</strong> for
+          blizzard • Press <strong>E</strong> for earthquake.
+        </small>
+      </div>
+      <div class="panel">
+        <strong>Town State</strong>
+        <ul id="state-list"></ul>
+      </div>
+    </section>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
